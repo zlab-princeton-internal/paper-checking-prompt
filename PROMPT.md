@@ -35,8 +35,7 @@ Download and **read in full** the following guides, understanding every rule:
 
 - **Figure & Table Guide (English)**: https://raw.githubusercontent.com/zlab-princeton-internal/figure-guide/main/README.md
 - **Figure & Table Guide (Chinese)**: https://raw.githubusercontent.com/zlab-princeton-internal/figure-guide/main/README_CN.md
-- **Writing Guide (English)**: https://raw.githubusercontent.com/zlab-princeton-internal/wiki/main/README.md
-- **Writing Guide (Chinese)**: https://raw.githubusercontent.com/zlab-princeton-internal/wiki/main/README_CN.md
+- **Writing Guide**: https://raw.githubusercontent.com/zlab-princeton-internal/writing-guide/main/README.md
 
 Download and read both English and Chinese versions — they complement each other. These guides define all the standards for this check.
 
