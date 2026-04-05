@@ -86,7 +86,9 @@ pdflatex -interaction=nonstopmode -shell-escape <main>.tex
 
 这个阶段需要单独、专注地做一遍。**每个 section 单独一次调用** — 一次调用只审一个 section，不要把多个 section 合并到一次调用中。
 
-对每个 section（Abstract、Introduction、Method、Experiments、Related Work、Conclusion、以及每个 Appendix section），分别给出：
+对正文的每个 section——包括但不限于 Abstract、Introduction、Method、Experiments、Related Work、Conclusion、以及论文自定义的其他 section——每个单独一次调用。整个 Appendix 可以合并为一次调用。
+
+对每个，分别给出：
 
 1. **Weaknesses** — 按重要性排列，最关键的在前。要具体：引用原文短语，指明段落位置。
 2. **Strengths** — 按重要性排列。

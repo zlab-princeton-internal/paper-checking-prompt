@@ -86,7 +86,9 @@ Parse `\includegraphics{path}` from tex, and **read the original file** to check
 
 This phase deserves its own dedicated pass. **Each section gets its own separate invocation** — one section per call, do not combine multiple sections into one invocation.
 
-For each section (Abstract, Introduction, Method, Experiments, Related Work, Conclusion, and each Appendix section), provide:
+For each section of the main body — including but not limited to Abstract, Introduction, Method, Experiments, Related Work, Conclusion, and any other sections the paper defines — provide a separate invocation. The entire Appendix can be reviewed in one invocation.
+
+For each, provide:
 
 1. **Weaknesses** — ranked by importance, most critical first. Be specific: quote phrases, cite paragraph locations.
 2. **Strengths** — ranked by importance.
