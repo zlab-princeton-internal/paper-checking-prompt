@@ -91,12 +91,14 @@ For each section (Abstract, Introduction, Method, Experiments, Related Work, Con
 1. **Weaknesses** — ranked by importance, most critical first. Be specific: quote phrases, cite paragraph locations.
 2. **Strengths** — ranked by importance.
 
-Think like an ICML/NeurIPS reviewer. Focus on:
+Think broadly from the perspective of an ICML/NeurIPS reviewer and a general audience. List any weakness you notice — do not limit yourself to the rules in the guides above. The guides are a minimum, not a ceiling. At a minimum, consider:
 - Is the argument convincing? Are there logical gaps?
 - Is anything missing that a reviewer would ask about?
 - Are claims well-supported by evidence?
 - Is the writing clear and well-organized?
 - Are there redundancies or unnecessary content?
+
+But go beyond these — flag anything that feels off, unclear, or could be improved.
 
 Do this for **every section**, including appendix sections. Do not skip any.
 

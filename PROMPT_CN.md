@@ -91,12 +91,14 @@ pdflatex -interaction=nonstopmode -shell-escape <main>.tex
 1. **Weaknesses** — 按重要性排列，最关键的在前。要具体：引用原文短语，指明段落位置。
 2. **Strengths** — 按重要性排列。
 
-像 ICML/NeurIPS reviewer 一样思考。关注：
+从 ICML/NeurIPS reviewer 和 general audience 的角度广泛思考。列出你注意到的任何问题——不要局限于上面指南中的规则。指南是最低标准，不是上限。至少考虑：
 - 论证是否有说服力？是否有逻辑漏洞？
 - 是否缺少 reviewer 会问到的内容？
 - Claim 是否有充分的实验证据支撑？
 - 写作是否清晰、组织是否合理？
 - 是否有冗余或不必要的内容？
+
+但不要局限于此——任何感觉不对、不清楚、或可以改进的地方都应该指出。
 
 **每个 section 都要做**，包括 appendix 的各个 section。不要跳过任何一个。
 
