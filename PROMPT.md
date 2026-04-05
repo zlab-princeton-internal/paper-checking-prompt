@@ -84,7 +84,9 @@ Parse `\includegraphics{path}` from tex, and **read the original file** to check
 
 ## Phase 3: Section-by-Section Holistic Review
 
-This phase deserves its own dedicated pass. For **each section** of the paper (Abstract, Introduction, Method, Experiments, Related Work, Conclusion, and each Appendix section), provide a separate, thorough review:
+This phase deserves its own dedicated pass. **Each section gets its own separate invocation** — one section per call, do not combine multiple sections into one invocation.
+
+For each section (Abstract, Introduction, Method, Experiments, Related Work, Conclusion, and each Appendix section), provide:
 
 1. **Weaknesses** — ranked by importance, most critical first. Be specific: quote phrases, cite paragraph locations.
 2. **Strengths** — ranked by importance.
@@ -96,7 +98,7 @@ Think like an ICML/NeurIPS reviewer. Focus on:
 - Is the writing clear and well-organized?
 - Are there redundancies or unnecessary content?
 
-Do this for **every section**, including appendix sections. Do not skip or combine sections.
+Do this for **every section**, including appendix sections. Do not skip any.
 
 ---
 
@@ -108,6 +110,8 @@ For every bib entry:
 2. Check if arXiv papers have since been **published at a conference** — if so, suggest updating the entry
 3. Provide a **verification URL** (Semantic Scholar, Google Scholar, or conference proceedings page) for each entry
 4. **Never rely on LLM memory for publication status** — always search and verify
+
+**Use massive parallel agents** — launch many agents simultaneously, each verifying a subset of bib entries. Do not check entries one by one sequentially.
 
 ---
 

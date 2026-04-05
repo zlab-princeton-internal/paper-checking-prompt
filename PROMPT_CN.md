@@ -84,7 +84,9 @@ pdflatex -interaction=nonstopmode -shell-escape <main>.tex
 
 ## Phase 3: 逐 Section 整体评审
 
-这个阶段需要单独、专注地做一遍。对论文的**每个 section**（Abstract、Introduction、Method、Experiments、Related Work、Conclusion、以及每个 Appendix section），分别进行深入评审：
+这个阶段需要单独、专注地做一遍。**每个 section 单独一次调用** — 一次调用只审一个 section，不要把多个 section 合并到一次调用中。
+
+对每个 section（Abstract、Introduction、Method、Experiments、Related Work、Conclusion、以及每个 Appendix section），分别给出：
 
 1. **Weaknesses** — 按重要性排列，最关键的在前。要具体：引用原文短语，指明段落位置。
 2. **Strengths** — 按重要性排列。
@@ -96,7 +98,7 @@ pdflatex -interaction=nonstopmode -shell-escape <main>.tex
 - 写作是否清晰、组织是否合理？
 - 是否有冗余或不必要的内容？
 
-**每个 section 都要做**，包括 appendix 的各个 section。不要跳过或合并。
+**每个 section 都要做**，包括 appendix 的各个 section。不要跳过任何一个。
 
 ---
 
@@ -108,6 +110,8 @@ pdflatex -interaction=nonstopmode -shell-escape <main>.tex
 2. 检查 arXiv 论文是否已在会议发表——如是，给出更新建议
 3. 为每个条目提供**验证 URL**（Semantic Scholar、Google Scholar 或会议官方页面）
 4. **永远不要靠 LLM 记忆判断发表状态**——必须搜索验证
+
+**使用大量并行 agent** — 同时启动多个 agent，每个验证一部分 bib 条目。不要一条一条顺序检查。
 
 ---
 
