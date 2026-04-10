@@ -10,10 +10,12 @@
 git clone https://github.com/zlab-princeton-internal/paper-checking-prompt.git
 ```
 
-然后在你论文的项目文件夹下打开 Claude Code，说：
+在你论文的项目文件夹下打开 Claude Code（**Opus 模型，max 模式**），说：
 
 ```
 读 paper-checking-prompt/PROMPT_CN.md（英文版用 PROMPT.md），然后检查这篇论文。
 ```
 
-就这样。剩下的全部交给它。
+就这样。剩下的全部交给 Claude Code。
+
+P.S. 你可以尝试其他编程助手（Codex、Gemini CLI 等）并比较结果，但请确保至少用 **Claude Code + Opus + max 模式** 跑一遍以获得最佳质量。
