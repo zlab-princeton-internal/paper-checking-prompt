@@ -56,7 +56,8 @@ For all items in the Python group, **write a complete Python script** that reads
 - Do not be stingy with code — write more rather than miss checks
 - The script may be very long (hundreds or even thousands of lines) — this is normal
 - Each check outputs PASS/FAIL/WARN + a searchable location string
-- Run the script after writing it, and collect Phase 1 results
+- Run the script after writing it
+- **Write results to `phase1_results.md` immediately** — do not wait until the final report
 
 **Note: The document is constantly being edited. Re-read files every time you check — do not rely on cached content.**
 
@@ -68,33 +69,33 @@ For all items in the LLM group, plus all items Phase 1 already checked (double-c
 
 ### How to invoke
 
-Use **`claude -p`** (headless mode) for each batch of checks. Each call gets:
-- The prompt specifying which 5 rules to check
-- The full paper content (tex source, or PDF pages) as context
-
-**Each `claude -p` call checks only 5 rules.** Split all rules into batches of 5 and launch separate `claude -p` calls for each batch. You can run multiple calls in parallel.
+**IMPORTANT: Each invocation must check at most 5 rules.** Split all rules into batches of 5. Launch a separate invocation for each batch (e.g., using subagents), and **run them in parallel**. Do NOT try to check all rules in a single pass — this leads to shallow, incomplete results.
 
 ### What to check:
 
-**Reading the .tex source** (pass tex content to `claude -p`):
+### What to check:
+
+**Reading the .tex source:**
 Check all rules related to content, language, structure, and citations.
 
-**Reading the compiled PDF** (pass PDF pages to `claude -p`):
+**Reading the compiled PDF:**
 Check all rules related to visuals, layout, paragraph length, and figure appearance. **Check every page, including the appendix.**
 
-**Reading original figure files** (pass original figure files to `claude -p`):
-Parse `\includegraphics{path}` from tex, and **read the original file** to check. Do not rely on shrunken figures in the compiled PDF. Only fall back to the PDF if the original file is unavailable.
+**Reading original figure files:**
+Parse `\includegraphics{path}` from tex, and **read the original figure files** to check. Do not rely on shrunken figures in the compiled PDF. Only fall back to the PDF if the original file is unavailable.
 
 ### Appendix:
 **Apply the exact same standards as the main body.** Paragraphs can be somewhat shorter but not all 1–3 lines. Paragraph formatting must be consistent. Do not lower standards just because it is the appendix.
+
+**Write results to `phase2_results.md` as each invocation completes.** Record every finding immediately with full detail — do not wait until the final report.
 
 ---
 
 ## Phase 3: Section-by-Section Holistic Review
 
-This phase deserves its own dedicated pass. Use **`claude -p`** for each section — pass the section's tex content as context, along with the prompt asking for weaknesses and strengths.
+This phase deserves its own dedicated pass. **One invocation per main-body section, run in parallel** (e.g., using subagents).
 
-**One `claude -p` call per main-body section.** For each section of the main body — including but not limited to Abstract, Introduction, Method, Experiments, Related Work, Conclusion, and any other sections the paper defines — launch a separate `claude -p` call. The entire Appendix can be reviewed in one `claude -p` call. Run all calls in parallel.
+For each section of the main body — including but not limited to Abstract, Introduction, Method, Experiments, Related Work, Conclusion, and any other sections the paper defines — launch a separate invocation. The entire Appendix can be reviewed in one invocation.
 
 For each, provide:
 
@@ -112,6 +113,8 @@ But go beyond these — flag anything that feels off, unclear, or could be impro
 
 Do this for **every section**, including appendix sections. Do not skip any.
 
+**Write results to `phase3_results.md` as each invocation completes.**
+
 ---
 
 ## Phase 4: Reference Verification
@@ -125,9 +128,13 @@ For every bib entry:
 
 **Use massive parallel agents** — launch many agents simultaneously, each verifying a subset of bib entries. Do not check entries one by one sequentially.
 
+**Write results to `phase4_results.md` as each invocation completes.**
+
 ---
 
 ## Phase 5: Generate Report
+
+**This phase only merges and formats.** All findings should already be recorded in `phase1_results.md` through `phase4_results.md`. Read those files, merge them into the final report structure, and format for output. Do not re-do any checks — just compile and organize.
 
 ### Rules of conduct (must be strictly followed):
 

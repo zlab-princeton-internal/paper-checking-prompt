@@ -56,7 +56,8 @@ pdflatex -interaction=nonstopmode -shell-escape <main>.tex
 - 不要吝啬代码量——宁可多写也不要漏查
 - 脚本可能很长（几百甚至上千行），这是正常的
 - 每个检查项输出 PASS/FAIL/WARN + 可搜索的具体位置
-- 写完后运行脚本，收集 Phase 1 结果
+- 写完后运行脚本
+- **立即将结果写入 `phase1_results.md`** — 不要等到最后才写报告
 
 **注意：文档在不断编辑中。每次检查都要重新读取文件，不要依赖缓存内容。**
 
@@ -68,33 +69,33 @@ pdflatex -interaction=nonstopmode -shell-escape <main>.tex
 
 ### 调用方式
 
-使用 **`claude -p`**（headless 模式）进行每一批检查。每次调用传入：
-- 指定要检查哪 5 条规则的 prompt
-- 论文完整内容（tex 源文件或 PDF 页面）作为 context
-
-**每次 `claude -p` 调用只检查 5 条规则。** 将所有规则分成每 5 条一批，为每批启动单独的 `claude -p` 调用。可以并行运行多个调用。
+**重要：每次调用最多只检查 5 条规则。** 将所有规则分成每 5 条一批，为每批启动单独的调用（例如使用 subagent），**并行运行**。不要试图在一次 pass 中检查所有规则——这会导致检查不深入、不完整。
 
 ### 检查内容：
 
-**读 .tex 源文件**（将 tex 内容传给 `claude -p`）：
+### 检查内容：
+
+**读 .tex 源文件：**
 检查所有与内容、语言、结构、引用相关的规则。
 
-**读编译 PDF**（将 PDF 页面传给 `claude -p`）：
+**读编译 PDF：**
 检查所有与视觉、排版、段落长度、图表外观相关的规则。**每一页都查，包括 appendix。**
 
-**读原始 figure 文件**（将原始 figure 文件传给 `claude -p`）：
+**读原始 figure 文件：**
 从 tex 解析 `\includegraphics{path}`，**直接读原始文件**检查。不要依赖编译 PDF 中被缩小的图。原始文件没有时才 fallback 到 PDF。
 
 ### Appendix：
 **适用与正文完全相同的标准。** 段落可以稍短但不能全是 1-3 行短段。段落格式必须一致。不因为是 appendix 就放水。
 
+**每个调用完成后立即将结果写入 `phase2_results.md`。** 每条发现都要立刻记录完整细节，不要等到最后写报告。
+
 ---
 
 ## Phase 3: 逐 Section 整体评审
 
-这个阶段需要单独、专注地做一遍。使用 **`claude -p`** 处理每个 section——将该 section 的 tex 内容作为 context 传入，连同要求列出 weaknesses 和 strengths 的 prompt。
+这个阶段需要单独、专注地做一遍。**正文每个 section 一次调用，并行运行**（例如使用 subagent）。
 
-**正文每个 section 一次 `claude -p` 调用。** 对正文的每个 section——包括但不限于 Abstract、Introduction、Method、Experiments、Related Work、Conclusion、以及论文自定义的其他 section——启动单独的 `claude -p` 调用。整个 Appendix 可以合并为一次 `claude -p` 调用。所有调用可以并行运行。
+对正文的每个 section——包括但不限于 Abstract、Introduction、Method、Experiments、Related Work、Conclusion、以及论文自定义的其他 section——启动单独的调用。整个 Appendix 可以合并为一次调用。
 
 对每个，分别给出：
 
@@ -112,6 +113,8 @@ pdflatex -interaction=nonstopmode -shell-escape <main>.tex
 
 **每个 section 都要做**，包括 appendix 的各个 section。不要跳过任何一个。
 
+**每个调用完成后立即将结果写入 `phase3_results.md`。**
+
 ---
 
 ## Phase 4: 引用验证
@@ -125,9 +128,13 @@ pdflatex -interaction=nonstopmode -shell-escape <main>.tex
 
 **使用大量并行 agent** — 同时启动多个 agent，每个验证一部分 bib 条目。不要一条一条顺序检查。
 
+**每个调用完成后立即将结果写入 `phase4_results.md`。**
+
 ---
 
 ## Phase 5: 生成报告
+
+**这个阶段只做合并和格式化。** 所有发现应该已经记录在 `phase1_results.md` 到 `phase4_results.md` 中。读取这些文件，合并成最终报告结构，格式化输出。不要重新检查——只编排和整理。
 
 ### 行为准则（必须严格遵守）：
 
