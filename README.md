@@ -13,7 +13,7 @@ git clone https://github.com/zlab-princeton-internal/paper-checking-prompt.git
 Open Claude Code (**Opus model, max effort**) in your paper's project folder and say:
 
 ```
-Read paper-checking-prompt/PROMPT.md (or PROMPT_CN.md for Chinese), then check this paper.
+Read both paper-checking-prompt/PROMPT.md and paper-checking-prompt/PROMPT_CN.md, then check this paper.
 ```
 
 That's it. Claude Code handles everything else.
