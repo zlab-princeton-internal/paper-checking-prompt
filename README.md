@@ -4,6 +4,10 @@
 
 A prompt for checking academic ML papers with [Claude Code](https://docs.anthropic.com/en/docs/claude-code). Built by [Zhuang Liu](https://liuzhuang13.github.io/).
 
+**Related**: [Writing Guide](https://github.com/zlab-princeton-internal/writing-guide) · [Figure Guide](https://github.com/zlab-princeton-internal/figure-guide) · [Peer Review System](https://github.com/zlab-princeton-internal/peer-review)
+
+> This guide is intended for [Zhuang Liu](https://liuzhuang13.github.io/)'s group members. Others are welcome to adopt or adapt it for their own use.
+
 ## Usage
 
 ```bash
