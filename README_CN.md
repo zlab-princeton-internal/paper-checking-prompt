@@ -4,7 +4,7 @@
 
 用 [Claude Code](https://docs.anthropic.com/en/docs/claude-code) 检查学术 ML 论文的 prompt。由 [Zhuang Liu](https://liuzhuang13.github.io/) 开发。
 
-**相关**: [Writing Guide](https://github.com/zlab-princeton-internal/writing-guide) · [Figure Guide](https://github.com/zlab-princeton-internal/figure-guide) · [Peer Review System](https://github.com/zlab-princeton-internal/peer-review)
+**相关**: [Writing Guide](https://github.com/zlab-princeton-internal/writing-guide) · [Figure Guide](https://github.com/zlab-princeton-internal/figure-guide) · [Peer Review System](https://github.com/zlab-princeton-internal/peer-review) · [Writing Self-Review](https://github.com/zlab-princeton-internal/paper-rating)
 
 > 本指南面向 [Zhuang Liu](https://liuzhuang13.github.io/) 组内成员。欢迎其他人参考或改编使用。
 
